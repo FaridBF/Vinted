@@ -95,3 +95,72 @@ img.header-logo {
   margin: 20px;
   cursor: pointer;
 }
+
+/*Banner*/
+
+.container-banner {
+  background-image: url(../src/assets/logo_vinted.png);
+  height: 455px;
+  width: 100%;
+  position: relative;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.banner-buy {
+  height: 220px;
+  width: 360px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 3px;
+  font-size: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  background-color: rgb(12, 76, 85);
+  left: 330px;
+  top: 75px;
+  box-shadow: 0 0 2px rgb(17 17 17 / 24%);
+}
+
+/*Market*/
+
+.container-market {
+  max-width: 1280px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto auto;
+  justify-content: space-evenly;
+}
+
+.container-card {
+  width: 235px;
+  height: 500px;
+  padding: 0 6px 16px;
+  cursor: pointer;
+  border: solid 2px;
+}
+
+/*Contenu de ma card*/
+.container-title-card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: red;
+}
+
+.container-image-card {
+  width: 220px;
+  height: 17px;
+  padding: 0 6px 16px;
+  cursor: pointer;
+  background-color: green;
+}
+
+.container-price-card {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  background-color: magenta;
+}
