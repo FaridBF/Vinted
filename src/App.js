@@ -1,46 +1,43 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import './App.css';
+import Cookies from 'js-cookie';
 
-import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Header from './components/Header';
 import Home from './pages/Home';
 import Offer from './pages/Offer';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
-  const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [token, setToken] = useState(Cookies.get('userToken') || null);
 
-  const fetchData = async () => {
-    const response = await axios.get(
-      'https://lereacteur-vinted-api.herokuapp.com/offers'
-    );
-    setData(response.data);
-    setIsLoading(false);
+  const setUser = (tokenToCheck) => {
+    if (tokenToCheck !== null) {
+      //Action de connexion
+      console.log("Création d'un cookie userToken");
+      Cookies.set('userToken', tokenToCheck, { expires: 10 });
+    } else {
+      //action de déconnexion
+      console.log("Suppression d'un cookie userTOken");
+      Cookies.remove('userToken');
+    }
+    setToken(tokenToCheck);
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  return isLoading ? (
-    <span>En cours de chargement... </span>
-  ) : (
-    <Router>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/home'>Home</Link>
-          </li>
-          <li>
-            <Link to='/offer'>Offer</Link>
-          </li>
-        </ul>
-      </nav>
-      <Routes>
-        <Route path='/Home' element={<Home />} />
-        <Route path='/Offer' element={<Offer />} />
-      </Routes>
-    </Router>
+  return (
+    <div className='container'>
+      <Router>
+        <Header token={token} setUser={setUser} />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/offer/:offerId' element={<Offer />} />
+          <Route path='/login' element={<Login setUser={setUser} />} />
+          <Route path='/signup' element={<Signup setUser={setUser} />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
