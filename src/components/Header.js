@@ -7,7 +7,6 @@ const Header = () => {
         <img className='header-logo' src={logo_vinted} alt='logo_vinted' />
         <div className='search-container'>
           <div>
-            <i class='fa-solid fa-magnifying-glass'></i>
             <input
               type='text'
               className='search-input'
