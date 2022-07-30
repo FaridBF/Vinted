@@ -5,9 +5,17 @@ import { Link } from 'react-router-dom';
 
 import Banner from '../components/Banner';
 
-const Home = () => {
+const Home = ({ input }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  const fetchDataWithInput = async (input) => {
+    const response = await axios.get(
+      `https://lereacteur-vinted-api.herokuapp.com/offers?title=${input}`
+    );
+    setData(response.data);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     try {
@@ -23,6 +31,17 @@ const Home = () => {
       console.log(error.message);
     }
   }, []);
+
+  useEffect(() => {
+    if (input.length > 0) {
+      try {
+        fetchDataWithInput(input);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+  }, [input]);
+
   return isLoading === true ? (
     <div>En cours de chargement</div>
   ) : (
