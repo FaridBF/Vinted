@@ -10,16 +10,21 @@ const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchOffer = async () => {
-      const response = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offer/${offerId}`
-      );
-      console.log(response.data);
-      setData(response.data);
-      setIsLoading(false);
-    };
-    fetchOffer();
+    try {
+      const fetchOffer = async () => {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${offerId}`
+        );
+        console.log(response.data);
+        setData(response.data);
+        setIsLoading(false);
+      };
+      fetchOffer();
+    } catch (error) {
+      console.log(error.message);
+    }
   }, [offerId]);
+
   return isLoading === true ? (
     <div>En cours de chargement</div>
   ) : (
@@ -36,10 +41,10 @@ const Offer = () => {
           <div className='offer-infos'>
             <span className='offer-price'>{data.product_price}€</span>
             <ul className='offer-list'>
-              {data.product_details.map((item) => {
+              {data.product_details.map((item, index) => {
                 const keys = Object.keys(item);
                 return (
-                  <li className='offer-list-li'>
+                  <li key={index} className='offer-list-li'>
                     {keys[0]} : {item[keys[0]]}
                   </li>
                 );
