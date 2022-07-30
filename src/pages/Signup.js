@@ -31,7 +31,7 @@ const Signup = ({ setUser }) => {
       if (response.data) {
         console.log("J'ai bien réussi à créer un compte");
         setUser(response.data.token);
-        navigate('/');
+        navigate('/login');
       }
     } catch (error) {
       console.log(error);
