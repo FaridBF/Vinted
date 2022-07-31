@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import Banner from '../components/Banner';
 
+import avatar_default from '../assets/avatar_default.png';
+
 const Home = ({ input, isPriceAsc }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -74,15 +76,19 @@ const Home = ({ input, isPriceAsc }) => {
               <Link to={`/offer/${offer._id}`}>
                 <div className='container-card'>
                   <div className='container-title-avatar'>
-                    {offer.owner && offer.owner.account.avatar && (
+                    {offer.owner && offer.owner.account.avatar ? (
                       <img
                         src={offer.owner.account.avatar.secure_url}
                         alt='avatar_profil'
                       />
+                    ) : (
+                      <img src={avatar_default} alt='avatar_profil' />
                     )}
 
                     <h2 className='container-title-card'>
-                      {offer.owner && offer.owner.account.username}
+                      {offer.owner && offer.owner.account.username
+                        ? offer.owner && offer.owner.account.username
+                        : 'Profil non communiqué'}
                     </h2>
                   </div>
                   <img
