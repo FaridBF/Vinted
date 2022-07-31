@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import Banner from '../components/Banner';
 
-const Home = ({ input }) => {
+const Home = ({ input, isPriceAsc }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -42,6 +42,26 @@ const Home = ({ input }) => {
     }
   }, [input]);
 
+  useEffect(() => {
+    try {
+      setIsLoading(true);
+      const sortByPrice = async () => {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${
+            isPriceAsc ? 'price-asc' : 'price-desc'
+          }`
+        );
+        const dataTemp = response.data;
+        setData(dataTemp);
+        setIsLoading(false);
+        console.log(response.data);
+      };
+      sortByPrice();
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, [isPriceAsc]);
+
   return isLoading === true ? (
     <div>En cours de chargement</div>
   ) : (
@@ -53,17 +73,18 @@ const Home = ({ input }) => {
             <div key={index}>
               <Link to={`/offer/${offer._id}`}>
                 <div className='container-card'>
-                  {offer.owner && offer.owner.account.avatar && (
-                    <img
-                      style={{ width: '50px' }}
-                      src={offer.owner.account.avatar.secure_url}
-                      alt='avatar_profil'
-                    />
-                  )}
+                  <div className='container-title-avatar'>
+                    {offer.owner && offer.owner.account.avatar && (
+                      <img
+                        src={offer.owner.account.avatar.secure_url}
+                        alt='avatar_profil'
+                      />
+                    )}
 
-                  <h2 className='container-title-card'>
-                    {offer.owner && offer.owner.account.username}
-                  </h2>
+                    <h2 className='container-title-card'>
+                      {offer.owner && offer.owner.account.username}
+                    </h2>
+                  </div>
                   <img
                     className='container-image-card'
                     style={{
@@ -74,15 +95,17 @@ const Home = ({ input }) => {
                     src={offer.product_image.secure_url}
                     alt='picture_produit'
                   />
-                  <span>{offer.product_price}</span>
-                  {offer.product_details.map((element, index) => {
-                    return (
-                      <div key={index}>
-                        <span>{element.TAILLE}</span>
-                        <span>{element.MARQUE}</span>
-                      </div>
-                    );
-                  })}
+                  <div className='card-price-size-brand'>
+                    <span className='price'>{offer.product_price} €</span>
+                    {offer.product_details.map((element, index) => {
+                      return (
+                        <div key={index}>
+                          <span className='sizes'>{element.TAILLE}</span>
+                          <span className='brand'>{element.MARQUE}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </Link>
             </div>

@@ -12,6 +12,7 @@ import Signup from './pages/Signup';
 function App() {
   const [token, setToken] = useState(Cookies.get('userToken') || null);
   const [input, setInput] = useState('');
+  const [isPriceAsc, setIsPriceAsc] = useState(true);
 
   const setUser = (tokenToCheck) => {
     if (tokenToCheck !== null) {
@@ -34,9 +35,14 @@ function App() {
           setUser={setUser}
           input={input}
           setInput={setInput}
+          isPriceAsc={isPriceAsc}
+          setIsPriceAsc={setIsPriceAsc}
         />
         <Routes>
-          <Route path='/' element={<Home input={input} />} />
+          <Route
+            path='/'
+            element={<Home isPriceAsc={isPriceAsc} input={input} />}
+          />
           <Route path='/offer/:offerId' element={<Offer />} />
           <Route path='/login' element={<Login setUser={setUser} />} />
           <Route path='/signup' element={<Signup setUser={setUser} />} />
