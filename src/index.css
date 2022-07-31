@@ -131,7 +131,7 @@ img.header-logo {
 }
 
 .banner-buy {
-  height: 220px;
+  height: 240px;
   width: 360px;
   padding: 25px;
   border-radius: 3px;
@@ -258,6 +258,7 @@ h2.container-title-card {
   height: 35px;
   margin-bottom: 20px;
   width: 100%;
+  margin-top: 25px;
 }
 
 .signup-form button {
