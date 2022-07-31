@@ -46,7 +46,6 @@ const Home = ({ input, isPriceAsc }) => {
 
   useEffect(() => {
     try {
-      setIsLoading(true);
       const sortByPrice = async () => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${

@@ -49,9 +49,6 @@ const Header = ({
                       onClick={() => setIsPriceAsc(!isPriceAsc)}
                     >
                       {isPriceAsc ? 'close' : 'open'}
-                      <div className='knob'>
-                        <span>⇡ </span>
-                      </div>
                     </div>
                   </div>
                   <span className='headerRange'>
