@@ -8,7 +8,7 @@ const Banner = () => {
           <p>Prêts à faire du tri dans vos placards?</p>
 
           <Link to='/login'>
-            <button className='button-banner'>Commerncer à vendre</button>
+            <button className='button-banner'>Commencer à vendre</button>
           </Link>
         </div>
       </div>

@@ -43,12 +43,17 @@ const Header = ({
               <div className='container-sort'>
                 <div className='section-sort'>
                   <span>trier par prix :</span>
-                  <button
-                    className='toogleByPrice'
-                    onClick={() => setIsPriceAsc(!isPriceAsc)}
-                  >
-                    {isPriceAsc ? 'close' : 'open'}
-                  </button>
+                  <div className='checkbox'>
+                    <div
+                      className='toogleByPrice'
+                      onClick={() => setIsPriceAsc(!isPriceAsc)}
+                    >
+                      {isPriceAsc ? 'close' : 'open'}
+                      <div className='knob'>
+                        <span>⇡ </span>
+                      </div>
+                    </div>
+                  </div>
                   <span className='headerRange'>
                     <HeaderRange />
                   </span>

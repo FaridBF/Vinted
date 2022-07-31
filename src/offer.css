@@ -34,6 +34,10 @@
   color: #111;
 }
 
+span.price {
+  color: black;
+}
+
 .offer-list {
   list-style-type: none;
   padding: 0;

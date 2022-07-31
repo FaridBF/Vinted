@@ -108,15 +108,31 @@ img.header-logo {
 
 /*Toggle*/
 
-.toogleByPrice {
-  height: 35px;
-  width: 60px;
-  border: none;
-  background-color: purple;
-  cursor: pointer;
+.checkbox {
+  margin-right: 25px;
+}
+
+.checkbox .toogleByPrice {
+  background-color: #2cb1ba;
   border-radius: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 42px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.checkbox .knob {
+  background-color: #fff;
+  border: 1px solid #666;
+  border-radius: 100%;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  transition: left 0.1s ease-in-out 0s;
+  font-weight: 700;
 }
 
 /*Banner*/
@@ -234,7 +250,7 @@ h2.container-title-card {
   margin-top: -10px;
 }
 
-/*Login*/
+/*Login and Sign up*/
 
 .signup-container {
   justify-content: center;
@@ -294,12 +310,6 @@ h2.container-title-card {
   color: #999;
   font-size: 12px;
   display: flex;
-}
-
-.checkbox {
-  transform: scale(2);
-  margin-right: 20px;
-  margin-left: 5px;
 }
 
 .checkbox-container {
