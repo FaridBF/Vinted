@@ -133,7 +133,6 @@ img.header-logo {
 .banner-buy {
   height: 220px;
   width: 360px;
-  background-color: #fff;
   padding: 25px;
   border-radius: 3px;
   font-size: 34px;
@@ -145,6 +144,22 @@ img.header-logo {
   left: 17%;
   top: 17%;
   box-shadow: 0 0 2px rgb(17 17 17 / 24%);
+  color: black;
+  background-color: white;
+  font-family: 'Maison Neue';
+  font-weight: 500;
+}
+
+.button-banner {
+  height: 45px;
+  width: 187px;
+  background-color: #2baeb7;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  padding: 0 14px;
+  margin-top: 32px;
 }
 
 /*Market*/

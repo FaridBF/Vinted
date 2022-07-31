@@ -5,10 +5,10 @@ const Banner = () => {
     <div className='container-banner'>
       <div className='banner-buy'>
         <div>
-          <p>Prêt à faire du tri dans vos placards?</p>
+          <p>Prêts à faire du tri dans vos placards?</p>
 
           <Link to='/login'>
-            <button>Commerncer à vendre</button>
+            <button className='button-banner'>Commerncer à vendre</button>
           </Link>
         </div>
       </div>

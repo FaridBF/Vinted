@@ -1,12 +1,17 @@
 import logo_vinted from '../assets/logo_vinted.png';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 
 import HeaderRange from './HeaderRange';
 
-const Header = ({ token, setUser, input, setInput }) => {
+const Header = ({
+  token,
+  setUser,
+  input,
+  setInput,
+  isPriceAsc,
+  setIsPriceAsc
+}) => {
   const navigate = useNavigate();
-  const [isPriceAsc, setIsPriceAsc] = useState(true);
 
   return (
     <>
