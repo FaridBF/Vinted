@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
-  width: 320px;
+  width: 390px;
   padding: 40px;
 }
 
@@ -44,19 +44,19 @@
   padding: 2px 0;
 }
 
-.offer-list li:nth-child(1n) {
+.li-left {
   color: #999;
-}
-
-.offer-list li {
   flex: 1 1;
   font-size: 14px;
   text-transform: uppercase;
 }
 
-.offer-list li:nth-child(2n) {
+.li-right {
   color: #666;
   font-weight: 700;
+  flex: 1 1;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 .offer-infos .border {
@@ -73,6 +73,7 @@
 .offer-avatar-username {
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
 
 .offer-content .name {
@@ -110,4 +111,8 @@ input {
 button,
 input[type='checkbox'] {
   cursor: pointer;
+}
+
+p.description {
+  margin-top: 10px;
 }
