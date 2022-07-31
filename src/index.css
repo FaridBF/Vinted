@@ -4,7 +4,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'imb-plex-sans';
+  /* font-family: 'imb-plex-sans'; */
+  font-family: 'Maison Neue';
+
+  text-decoration: none;
 }
 
 /*afin que les images ne débordent jamais*/
@@ -48,6 +51,10 @@ img.header-logo {
   font-size: 16px;
 }
 
+.headerRange {
+  width: 70%;
+}
+
 .container-sort {
   width: 632px;
 }
@@ -81,6 +88,7 @@ img.header-logo {
   outline: none;
   margin: 20px;
   cursor: pointer;
+  background-color: white;
 }
 
 .button-sold {
@@ -96,6 +104,19 @@ img.header-logo {
   margin: 20px;
   cursor: pointer;
   margin-left: 35px;
+}
+
+/*Toggle*/
+
+.toogleByPrice {
+  height: 35px;
+  width: 60px;
+  border: none;
+  background-color: purple;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*Banner*/
@@ -139,17 +160,29 @@ img.header-logo {
 .container-card {
   width: 235px;
   height: 500px;
-  padding: 0 6px 16px;
+  padding: 0 5px 20px;
   cursor: pointer;
-  border: solid 2px;
 }
 
 /*Contenu de ma card*/
-.container-title-card {
+
+.container-title-avatar {
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: red;
+}
+
+.container-title-avatar > img {
+  height: 25px;
+  width: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+h2.container-title-card {
+  color: #999;
+  font-size: 12px;
 }
 
 .container-image-card {
@@ -157,12 +190,106 @@ img.header-logo {
   height: 17px;
   padding: 0 6px 16px;
   cursor: pointer;
-  background-color: green;
 }
 
 .container-price-card {
   display: flex;
   flex-direction: column;
   padding: 8px;
-  background-color: magenta;
+}
+
+.sizes {
+  color: #999;
+  font-size: 12px;
+}
+
+.brand {
+  font-size: 12px;
+  color: #999;
+}
+
+.price {
+  font-size: 14px;
+}
+
+.card-price-size-brand {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  margin-top: -10px;
+}
+
+/*Login*/
+
+.signup-container {
+  justify-content: center;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.signup-form {
+  width: 275px;
+  margin: auto;
+}
+
+.sign-form h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-form > input {
+  border: none;
+  border-bottom: 1px solid #fcced3;
+  height: 35px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.signup-form button {
+  background-color: #2cb1ba;
+  height: 45px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.sign-form-title {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.signup-container a {
+  color: #2cb1ba;
+  font-size: 12px;
+}
+
+.newsLetters {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.conditions-signup {
+  text-align: left;
+  color: #999;
+  font-size: 12px;
+  display: flex;
+}
+
+.checkbox {
+  transform: scale(2);
+  margin-right: 20px;
+  margin-left: 5px;
+}
+
+.checkbox-container {
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
 }
