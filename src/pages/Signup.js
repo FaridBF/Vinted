@@ -41,41 +41,52 @@ const Signup = ({ setUser }) => {
     }
   };
   return (
-    <div>
-      <h1>Signup</h1>
-      <form onSubmit={handleSignup}>
+    <div className='signup-container'>
+      <h1 className='sign-form-title'>S'inscrire</h1>
+      <form className='signup-form' onSubmit={handleSignup}>
         <input
           type='text'
-          placeholder='Your Username'
+          placeholder='Nom d utilisateur'
           value={username}
           onChange={(event) => setUsername(event.target.value)}
         />
-        <br />
         <input
           type='email'
-          placeholder='Your Email'
+          placeholder='Email'
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
-        <br />
         <input
           type='password'
-          placeholder='Your Password'
+          placeholder='Mot de passe'
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
-        <br />
-
-        <input
-          type='checkbox'
-          placeholder='test'
-          value={newsletter}
-          onChange={(event) => setNewsletter(event.target.checked)}
-        />
-        <span>S'inscire à la newsletter</span>
-        <br />
-        <input type='submit' value="S'inscrire" />
+        <div className='checkbox-container'>
+          <div className='newsLetters'>
+            <input
+              className='checkbox'
+              type='checkbox'
+              placeholder='test'
+              value={newsletter}
+              onChange={(event) => setNewsletter(event.target.checked)}
+            />
+            <span>S'inscire à la newsletter</span>
+          </div>
+          <span className='conditions-signup'>
+            En m'inscrivant je confirme avoir lu et accepté les Termes &
+            Conditions et Politique de Confidentialité de Vinted. Je confirme
+            avoir au moins 18 ans
+          </span>
+        </div>
+        <button className='button-connecter' type='submit'>
+          S'inscrire
+        </button>
         <p style={{ color: 'red' }}>{errorMessage}</p>
+
+        <a href='http://localhost:3000/login'>
+          Tu as déjà un compte ? Connecte-toi !
+        </a>
       </form>
     </div>
   );
