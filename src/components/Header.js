@@ -81,7 +81,7 @@ const Header = ({
               )}
             </div>
             <div>
-              <Link to='/login'>
+              <Link to='/publish'>
                 <button className='button-sold'>Vends tes articles</button>
               </Link>
             </div>
@@ -134,7 +134,7 @@ const Header = ({
               )}
             </div>
             <div>
-              <Link to='/login'>
+              <Link to='/publish'>
                 <button className='button-sold'>Vends tes articles</button>
               </Link>
             </div>
