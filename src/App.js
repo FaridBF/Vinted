@@ -8,11 +8,14 @@ import Home from './pages/Home';
 import Offer from './pages/Offer';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Publish from './pages/Publish';
 
 function App() {
   const [token, setToken] = useState(Cookies.get('userToken') || null);
   const [input, setInput] = useState('');
   const [isPriceAsc, setIsPriceAsc] = useState(true);
+
+  console.log('tok dans app =>', token);
 
   const setUser = (tokenToCheck) => {
     if (tokenToCheck !== null) {
@@ -46,6 +49,7 @@ function App() {
           <Route path='/offer/:offerId' element={<Offer />} />
           <Route path='/login' element={<Login setUser={setUser} />} />
           <Route path='/signup' element={<Signup setUser={setUser} />} />
+          <Route path='/publish' element={<Publish token={token} />} />
         </Routes>
       </Router>
     </div>
