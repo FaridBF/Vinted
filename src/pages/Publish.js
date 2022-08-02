@@ -1,12 +1,10 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import '../publish.css';
 
 function Publish({ token }) {
-  const navigate = useNavigate();
-
   const [isPictureSending, setIsPictureSending] = useState(false);
   const [data, setData] = useState(null);
 
@@ -48,7 +46,6 @@ function Publish({ token }) {
     console.log(response.data);
     setData(response.data);
     setIsPictureSending(false);
-    navigate('/offer/:offerId');
   };
   return (
     <div className='publish-main'>
@@ -197,9 +194,11 @@ function Publish({ token }) {
             </div>
           </div>
           <div className='form-button-div'>
-            <button type='submit' className='form-validation'>
-              Ajouter
-            </button>
+            <Link to='/'>
+              <button type='submit' className='form-validation'>
+                Ajouter
+              </button>
+            </Link>
           </div>
         </form>
       </div>
