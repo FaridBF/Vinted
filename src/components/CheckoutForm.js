@@ -3,7 +3,7 @@ import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 
 import axios from 'axios';
 
-const CheckoutForm = () => {
+const CheckoutForm = (price, title) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -19,15 +19,12 @@ const CheckoutForm = () => {
     const stripeResponse = await stripe.createToken(cardElement, {
       name: "L'id de l'acheteur"
     });
-    console.log(stripeResponse);
-    const stripeToken = stripeResponse.token.id;
-    // Une fois le token reçu depuis l'API Stripe
-    // Requête vers notre serveur
-    // On envoie le token reçu depuis l'API Stripe
     const response = await axios.post(
       'https://lereacteur-vinted-api.herokuapp.com/payment',
       {
-        stripeToken
+        stripeToken: stripeResponse.token.id,
+        title: title,
+        amount: price
       }
     );
     console.log(response.data);
