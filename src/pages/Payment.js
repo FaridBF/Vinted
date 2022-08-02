@@ -11,27 +11,40 @@ const stripePromise = loadStripe(
 
 const Payment = () => {
   const location = useLocation();
-  const { title } = location.state;
-  const { price } = location.state;
-  console.log(title);
-  console.log(price);
+  const { title, price } = location.state;
+
+  const buyerProtectionFees = (Number(price) * 0.1).toFixed(2);
+  const shippingFees = (Number(price) * 0.2).toFixed(2);
+  const total =
+    Number(buyerProtectionFees) + Number(shippingFees) + Number(price);
 
   return (
     <>
       <span>Résumé de la commande</span>
       <br />
-      {/* <span>Commande {price} €</span> */}
-      <span>Frais protection acheteurs{title} €</span>
-      <br />
-      <span>Frais de port {title}€</span>
-      <br />
-      <span>Total {title}€</span>
       <br />
       <br />
-      {/* <span>Il ne vous reste plus qu'une étape pour vous offrir {brand}.
-Vous allez payer {total}(frais de protection et frais de port inclus).</span> */}
+      <span>Commande {price} €</span>
+      <br />
+      <br />
+      <span>Frais protection acheteurs{buyerProtectionFees} €</span>
+      <br />
+      <br />
+      <span>Frais de port {shippingFees}€</span>
+      <br />
+      <br /> <span>Total {total}€</span>
+      <br />
+      <br />
+      <span>
+        Il ne vous reste plus qu'une étape pour vous offrir {title}.
+        <br />
+        <br />
+        Vous allez payer {total}(frais de protection et frais de port inclus).
+      </span>
+      <br />
+      <br />
       <Elements stripe={stripePromise}>
-        <CheckoutForm />
+        <CheckoutForm title={title} price={price} />
       </Elements>
     </>
   );
