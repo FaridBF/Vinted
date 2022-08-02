@@ -15,8 +15,6 @@ const Signup = ({ setUser }) => {
   const handleSignup = async (event) => {
     try {
       event.preventDefault();
-
-      //Je viens reset le message d'erreur à chaque tentative
       setErrorMessage('');
 
       const response = await axios.post(

@@ -22,7 +22,6 @@ const Login = ({ setUser }) => {
       console.log(response.data);
       if (response.data.token) {
         setUser(response.data.token);
-        // redirection
         navigate('/');
       }
     } catch (error) {
